@@ -1,2 +1,2 @@
-# Quantmult X
+# Quantumult X
 
