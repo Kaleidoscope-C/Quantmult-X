@@ -1,68 +1,32 @@
-var body = $response.body; 
-var obj = JSON.parse(body); 
-obj= {
- "result": "ok",
- "total_cost": 0,
- "privilege": [
-  {
-   "times": 0,
-   "expire_time": 4102415999,
-   "spid": "data_recover"
+var body = JSON.parse($response.body);
+var obj = {
+  exp: 0,
+  level: 3,
+  privilege: [
+    { spid: "data_recover", times: 0, expire_time: 4102415999 },
+    { spid: "ocr", times: 0, expire_time: 4102415999 },
+    { spid: "pdf2doc", times: 0, expire_time: 4102415999 },
+    { spid: "pdf_merge", times: 0, expire_time: 4102415999 },
+    { spid: "pdf_sign", times: 0, expire_time: 4102415999 },
+    { spid: "pdf_split", times: 0, expire_time: 4102415999 }
+  ],
+  result: "ok",
+  total_buy: 0,
+  total_cost: -30,
+  userid: body.userid,
+  vip: {
+    name: "超级会员",
+    has_ad: 0,
+    memberid: 40,
+    expire_time: 4102415999,
+    enabled: [
+      { memberid: 40, name: "超级会员", expire_time: 4102415999 },
+      { memberid: 20, name: "WPS会员", expire_time: 4102415999 },
+      { memberid: 12, name: "稻壳会员", expire_time: 4102415999 }
+    ]
   },
-  {
-   "times": 0,
-   "expire_time": 4102415999,
-   "spid": "ocr"
-  },
-  {
-   "times": 0,
-   "expire_time": 4102415999,
-   "spid": "pdf2doc"
-  },
-  {
-   "times": 0,
-   "expire_time": 4102415999,
-   "spid": "pdf_merge"
-  },
-  {
-   "times": 0,
-   "expire_time": 4102415999,
-   "spid": "pdf_sign"
-  },
-  {
-   "times": 0,
-   "expire_time": 4102415999,
-   "spid": "pdf_split"
-  }
- ],
- "userid": 115941770,
- "wealth": 0,
- "level": 1,
- "exp": 0,
- "vip": {
-  "memberid": 40,
-  "expire_time": 4102415999,
-  "name": "超级会员",
-  "has_ad": 0,
-  "enabled": [
-   {
-    "name": "超级会员",
-    "expire_time": 4102415999,
-    "memberid": 40
-   },
-   {
-    "name": "WPS会员",
-    "expire_time": 4102415999,
-    "memberid": 20
-   },
-   {
-    "name": "稻壳会员",
-    "expire_time": 4102415999,
-    "memberid": 12
-   }
-  ]
- },
- "total_buy": 0
+  wealth: 0,
+  expire_time: 4102415999
 };
-body = JSON.stringify(obj); 
-$done(body);
+
+$done({ body: JSON.stringify(obj) });
